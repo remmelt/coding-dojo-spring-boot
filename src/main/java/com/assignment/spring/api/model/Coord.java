@@ -1,8 +1,5 @@
+package com.assignment.spring.api.model;
 
-package com.assignment.spring.api;
-
-import java.util.HashMap;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -10,25 +7,41 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "all"
+        "lon",
+        "lat"
 })
-public class Clouds {
+public class Coord {
 
-    @JsonProperty("all")
-    private Integer all;
+    @JsonProperty("lon")
+    private Double lon;
+    @JsonProperty("lat")
+    private Double lat;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private final Map<String, Object> additionalProperties = new HashMap<>();
 
-    @JsonProperty("all")
-    public Integer getAll() {
-        return all;
+    @JsonProperty("lon")
+    public Double getLon() {
+        return lon;
     }
 
-    @JsonProperty("all")
-    public void setAll(Integer all) {
-        this.all = all;
+    @JsonProperty("lon")
+    public void setLon(Double lon) {
+        this.lon = lon;
+    }
+
+    @JsonProperty("lat")
+    public Double getLat() {
+        return lat;
+    }
+
+    @JsonProperty("lat")
+    public void setLat(Double lat) {
+        this.lat = lat;
     }
 
     @JsonAnyGetter
